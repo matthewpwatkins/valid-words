@@ -1,0 +1,23 @@
+{
+  "name": "valid-words",
+  "version": "1.0.0",
+  "description": "A list of valid words",
+  "main": "scrape-words.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TodoCleverNameHere/valid-words.git"
+  },
+  "keywords": [
+    "words",
+    "list"
+  ],
+  "author": "TodoCleverNameHere",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TodoCleverNameHere/valid-words/issues"
+  },
+  "homepage": "https://github.com/TodoCleverNameHere/valid-words#readme"
+}
