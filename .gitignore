@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+en_US
+en_US/
+en_US/*
