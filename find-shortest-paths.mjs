@@ -4,8 +4,15 @@ const startWord = process.argv[2];
 const endWord = process.argv[3];
 const blockWords = new Set(process.argv.length >= 5 ? process.argv[4]?.split(',') : []);
 
-if (blockWords.length) {
-  console.log(`Blocked words: ${[...blockWords]}`);
+for (const blockedWord of blockWords) {
+  fs.copyFileSync(`./en_US/${blockedWord}.json`, `./blocked/en_US/${blockedWord}.json`);
+  const entry = JSON.parse(fs.readFileSync(`./en_US/${blockedWord}.json`));
+  for (const neighbor of entry.chain_letters_neighbors) {
+    const neighborEntry = JSON.parse(fs.readFileSync(`./en_US/${neighbor}.json`));
+    neighborEntry.chain_letters_neighbors = neighborEntry.chain_letters_neighbors.filter(w => w !== blockedWord);
+    fs.writeFileSync(`./en_US/${neighbor}.json`, JSON.stringify(neighborEntry));
+  }
+  fs.rmSync(`./en_US/${blockedWord}.json`);
 }
 
 if (!startWord || !endWord) {
