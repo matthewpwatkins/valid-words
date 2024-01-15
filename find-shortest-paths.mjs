@@ -47,7 +47,7 @@ const findPath = (startWord, endWord, blockWords) => {
 const path = findPath(startWord, endWord, blockWords);
 
 if (path) {
-  console.log(`The shortest solution is length ${path.length}: ${path.join(',')}`);
+  console.log(`,\n  "best_path": ${JSON.stringify(path)}`);
 } else {
   console.log(`There is no path ${startWord} => ${endWord}`);
 }
